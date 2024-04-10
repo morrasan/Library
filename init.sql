@@ -4,8 +4,6 @@ CREATE TABLE authors (
     last_name VARCHAR(50)
 );
 
-CREATE INDEX idx_authors_id ON authors (id);
-
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     title VARCHAR(100),
@@ -14,7 +12,6 @@ CREATE TABLE books (
     author_id INTEGER REFERENCES authors(id)
 );
 
-CREATE INDEX idx_books_id ON books (id);
 CREATE INDEX idx_books_author_id ON books (author_id);
 
 CREATE TABLE reviews (
@@ -24,7 +21,6 @@ CREATE TABLE reviews (
     content TEXT
 );
 
-CREATE INDEX idx_reviews_id ON reviews (id);
 CREATE INDEX idx_reviews_book_id ON reviews (book_id);
 
 -- Create a perspective containing the 5 authors with the highest average rating
